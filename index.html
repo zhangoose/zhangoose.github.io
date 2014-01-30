@@ -7,59 +7,67 @@
 	<body>
 		<style>
 			body{
-				background-image:url('img/bg.jpg');
-				background-color:#ccff99;
+				background-color:white;
 			}
-			a:link {text-decoration:none; color:#663300; }
-			a:visited {text-decoration:none; color:#663300; } 
-			a:hover {text-decoration:underline; color:white; }
-			a:active {text-decoration:underline; color:#663300; }
+			a:link {text-decoration:none; color:black; }
+			a:visited {text-decoration:none; color:black; } 
+			a:hover {text-decoration:underline; color:#666666; }
+			a:active {text-decoration:underline; color:black; }
 			p{
 				font-family:Helvetica, Arial;	
-				display:inline;
 				text-align:center;
-				color: #663300;
-				font-size: 2em;
+				color: black;
+				font-size: 1.5em;
 			}
-			
-			h1{
-				color:#663300;
-				font-size: 6em;
-				font-family: Helvetica, Arial;
+			.link{
+				display:inline;
 			}
 			.img{
 				position: relative;
 				top: 20%;
 				left: 600px;
 			}
+			.img img{
+				height:auto;
+				width:50%;
+			}
 			.icon{
 				border-style:solid;
 				border-width: 2px;
-				border-color:white;
+				border-color:black;
 			}
 			#whole{
 				width: 300px;
 
 			}
-			#title{
+			#body{
 				border-style: dashed;
 				border-width: 2px;
 				padding:2em;
-				border-color:#663300;
+				border-color:black;
 				max-width: 800px;
 				position: absolute;
+			}
+			#title{
+				
 			}
 			
 		</style>
 		<div id="whole">
-			<div id="title">
-				<h1>Alex Zhang</h1>
-				<p>
+			<div id="body">
+				<p><img id="title" src="img/title.png" /></p>
+				<p class="link">
 					<a href="http://www.github.com/zhangoose">github</a>
 				</p>
-				<p> | </p>
-				<p>
+				<p class="link"> | </p>
+				<p class="link">
 					<a href="http://zhalex.tumblr.com">blog</a>
+				</p>
+				<p class="link"> | </p>
+				<p class="link">
+					<a href="docs/resume.pdf">resume</a>
+				</p>
+				
 				</p>
 			</div>
 			<div class="img">
