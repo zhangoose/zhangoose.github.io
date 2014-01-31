@@ -1,0 +1,36 @@
+body{
+	background-color:white;
+}
+
+a:link {text-decoration:none; color:#666666; }
+a:visited {text-decoration:none; color:#666666; } 
+a:hover {text-decoration:none; color:#ffbb88; }
+a:active {text-decoration:underline; color:#666666; }
+
+p{
+	font-family:Helvetica, Arial;	
+	text-align:center;
+	color: black;
+	font-size: 1.5em;
+}
+
+.smalltext{
+	font-size:0.5em;
+}
+
+.icon{
+	width: 100px;
+	height: auto;
+	padding: 10px;
+}
+
+#whole{
+	width: 300px;
+}
+#body{
+	border-style: dashed;
+	border-width: 2px;
+	padding:2em;
+	border-color:black;
+	width: 800px;
+}
