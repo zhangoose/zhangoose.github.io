@@ -17,6 +17,10 @@ a:active {text-decoration:underline; color:#666666; }
 	display: inline-block;
 }
 
+#nav_bar ul{
+	list-style-type:none;
+}
+
 .nav{
 	background-color: white;
 	border: 1px solid black;
