@@ -32,6 +32,10 @@ a:active {text-decoration:underline; color:#666666; }
 	text-transform: lowercase;
 }
 
+.nav:hover{
+	background-color: #EAE9E9;
+}
+
 .content{
 	background-color: white;
 	border:1px solid black;

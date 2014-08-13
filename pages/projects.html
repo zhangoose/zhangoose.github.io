@@ -5,7 +5,6 @@
 			font-family: 'Abel', Helvetica;
 		}
 		p{
-			line-height:5px;
 		}
 		.small_text{
 			font-size: 10%;
@@ -13,10 +12,13 @@
 			opacity: 40%;
 		}
 		.prev{
-			height:30%;
-			width:30%;
+			width:300px;
 			float:left;
 			margin-right:1.3em;
+		}
+		.proj_desc{
+			display:table;
+			width: 100%;
 		}
 
 	</style>
@@ -24,8 +26,8 @@
 
 <body>
 	<h1>projects and silliness (mostly silliness)</h1>
-	<div class="proj_desc">
-		<div id="proj_sing">
+	<div class="proj_desc1">
+		<div id="proj_sing" class="proj_desc">
 			<img class="prev" src="../img/proj/singtweet.png"></img>
 			<div class="desc">
 				<h3><a target="_blank" href="http://www.github.com/zhangoose/singtweet">singtweet</a></h3>
@@ -34,7 +36,7 @@
 				<p><strong>uses:</strong> tweepy (Twitter API wrapper), flask, jQuery <span class="small_text">,a fuckton of hacky-solution setTimeouts, and ghetto piano note .wav's</span>
 			</div>
 		</div>
-		<div id="proj_duck">
+		<div id="proj_duck" class="proj_desc">
 			<img class="prev" src="../img/proj/duckout.jpg"></img>
 			<div class="desc">
 				<h3><a target="_blank" href="http://www.github.com/zhangoose/duck-out">duck-out</a></h3>
@@ -43,7 +45,7 @@
 				<p><strong>uses:</strong> jQuery, canvas <span class="small_text">, and a shitty idea</span></p>
 			</div>
 		</div>
-		<div id="proj_typeme">
+		<div id="proj_typeme" class="proj_desc">
 			<img class="prev" src="../img/proj/typeme.png"></img>
 			<div class="desc">
 				<h3><a target="_blank" href="http://jsfiddle.net/zhangoose/qre4c/">type me</a></h3>
@@ -52,7 +54,7 @@
 				<p><strong>uses:</strong> jQuery <span class="small_text">and maybe some company property, a touch of boredom, and a pinch of curiosity</span></p>
 			</div>
 		</div>
-		<div id="proj_todo">
+		<div id="proj_todo" class="proj_desc">
 			<img class="prev" src="../img/proj/todolist.png"></img>
 			<div class="desc">
 				<h3><a target="_blank" href="http://jsfiddle.net/zhangoose/DY55a/">to do list</a></h3>
@@ -61,7 +63,7 @@
 				<p><strong>uses:</strong> jQuery <span class="small_text">and maybe some company property and the best 9am - 10am hour ever in that office</span></p>
 			</div>
 		</div>
-		<div id="proj_bobblehead">
+		<div id="proj_bobblehead" class="proj_desc">
 			<img class="prev" src="../img/proj/bobblehead.png"></img>
 			<div class="desc">
 				<h3><a target="_blank" href="http://jsfiddle.net/zhangoose/ckg46cnL/">bobblehead</a></h3>
