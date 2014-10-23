@@ -1,0 +1,12 @@
+---
+layout: post
+title: reading documentation is a beautiful thing
+date: '2014-04-24T12:52:48-04:00'
+tags: []
+tumblr_url: http://zhalex.tumblr.com/post/83728714352/reading-documentation-is-a-beautiful-thing
+---
+<p>So, a week or two ago at work, I realized there was something wrong with my Zend app that is supposed to access the Google Calendar API (GData, as it is built into Zend). Whenever I had recurring events, I would only get the first instance of that event in my range of search. I told my boss, he told me to fix it (naturally), and so for a week and a half I&#8217;ve been developing some way to handle this. I&#8217;ve been parsing the recurrence RRULE tag in my associative array I get back from Google, checking each day to see if it&#8217;s a recurrence date, storing it all into massive arrays, etc. </p>
+<p>Then today, I was reading through the GData Calendar EventQuery documentation (like the actual php file because I wanted the descriptions of each function. Note that the names are all listed <a href="http://framework.zend.com/apidoc/1.10/">here, this buried Zend-treasure)</a> and I found something called getSingleEvents(). Now this got me thinking something along the lines of &#8220;oh shit, is this what I think it is, is this the recurrence handler&#8221; because I actually did hear about this somewhere in the Zend API comments, but chose to ignore it. </p>
+<p>Anyways, this ended up not working, but then after some googling, I found that setParams(&#8216;singleevents&#8217;,&#8217;true&#8217;) worked and I was like OWWEwepfoakjweopkaweroiEIWEFjpOWEJIPWEkf to say the least.</p>
+<p>So, I told my boss, kind of sad, really sad actually. Scrapped my poor code to handle recurring events, I&#8217;m probably more sad because of that.</p>
+<p><strong>Lesson learned?</strong> always look through documentation before doing something retarded like implementing your own recurrence handler. smh.</p>

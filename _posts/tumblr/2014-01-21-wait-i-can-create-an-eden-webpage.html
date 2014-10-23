@@ -1,0 +1,21 @@
+---
+layout: post
+title: Wait, I Can Create an Eden Webpage??
+date: '2014-01-21T15:34:00-05:00'
+tags: []
+tumblr_url: http://zhalex.tumblr.com/post/74090786781/wait-i-can-create-an-eden-webpage
+---
+<p>So a little birdie told me about how you can create a webpage using eden (for all you Rutgers people). This&#8217;ll be my short tutorial on how to do that just in case someone else asks me. Unfortunately, this also means that I will nolonger be direct linking my domain name (zhalex.net) to this Tumblr. But it&#8217;ll be linked to on my actual webpage! (Yesss, don&#8217;t have to buy server space).</p>
+<p>This will be assuming that you have an eden.rutgers.edu account. I&#8217;m going to be accessing my files via SSH on bash. There are other tutorials on the eden site about how to access it <a href="http://oit-nb.rutgers.edu/documentation/remote-access-ssh-and-sftp">using PuTTY or some other SFTP client</a>. </p>
+<p>In bash, type in</p>
+<p><code>ssh -l USERNAME eden.rutgers.edu</code></p>
+<p>Replace USERNAME with your eden username (more commonly known as netid). </p>
+<p>You should then be prompted with a yes/no check to see whether or not you want to access eden.rutgers.edu. Type in yes, unless, y&#8217;know. After that, it should prompt you for your password. After typing that in, you should get to a directory layout that has</p>
+<p><code>drwx------ 10 USERNAME students 4096 DATECREATED Maildir </code></p>
+<p>Assuming you never touched the file management on your account.</p>
+<p>So you could actually just access your site right now at eden.rutgers.edu/~USERNAME (make sure the ~ is there), but if you have no files on there, it&#8217;ll return with a <em>Forbidden</em> <em>- you don&#8217;t have access to this </em> etc message. </p>
+<p>Here is when <a href="http://mapmaker.rutgers.edu/356/create_webpage.html">this</a> became pretty helpful. In short, just create a directory called <em>public_html</em> and drop in html files that you want to be seen in your website.</p>
+<p>You can access each of those files by going to eden.rutgers.edu/~USERNAME/FILENAME.</p>
+<p>If there&#8217;s no file in your public_html directory called &#8220;index.html&#8221;, your site is going to list out all your files in that directory. By creating an &#8220;index.html&#8221;, you&#8217;re giving your site a customized-by-you page to go to when people type in eden.rutgers.edu/~USERNAME (which will be index.html). </p>
+<p>Hope that helps :D</p>
+<p><strong>PS-</strong> if you don&#8217;t like using consoles to do things, you can do file management using <a href="https://www.eden.rutgers.edu/webtools/weeblefm/login.php">Weeble File Manager</a>. It gives you like the barebones. I don&#8217;t use it only because it looks really ugly (actually, all of eden does), but that&#8217;s just me.</p>

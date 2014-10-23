@@ -1,0 +1,84 @@
+---
+layout: post
+title: Basics of Tumblr Theme Creating
+date: '2014-01-29T14:56:00-05:00'
+tags: []
+tumblr_url: http://zhalex.tumblr.com/post/74967095439/basics-of-tumblr-theme-creating
+---
+<p>For <a href="http://www.github.com/chickenchowminh%22">Minh</a></p>
+<p>These are just going to be the basics of making a Tumblr theme for yourself. As I said in a previous blog entry, <a href="http://www.tumblr.com/docs/en/custom_themes">this is a very good resource</a>. But in this entry, I will summarize the basics of that resource to get you started on playing around with your Tumblr theme.</p>
+<p>So with any website layout, you need a relatively okay understanding of CSS (or else you end up with my super basic theme).</p>
+<p><img alt="image" src="https://31.media.tumblr.com/650a7b199474f0c30e697de3f7456fa5/tumblr_inline_n06hnq2FmP1swypvf.png"/></p>
+
+<p>(btw, trying to make a Tumblr theme is easier if you worked with other types of themes)</p>
+<h3>A few things you should know about the Tumblr theme you&#8217;re going to create:</h3>
+<ul><li>Perhaps one of the very few things that will set your theme apart from everyone else&#8217;s is your CSS (of course).</li>
+<li>Your &#8220;HTML&#8221; will be for the most part very similar to everyone else&#8217;s.</li>
+<li>Tumblr renders your HTML to figure out how your posts will look.</li>
+<li>You can style your Text posts, Image posts, Audio posts, Video posts, etc&#8230; individually (an advantage of Tumblr&#8217;s rendering process).</li>
+<li>You can let the user of your theme choose some of the properties of your Tumblr theme (ex: colors, font families, sizes, etc).</li>
+</ul><p>So, the reason why all of the above are true is because of how Tumblr renders your HTML. Tumblr, in short, will parse through your HTML, look for <strong>blocks</strong> and <strong>variables</strong>, and sort all your posts based on the surrounding HTML.</p>
+<p><strong>Special Tumblr Syntax</strong></p>
+<ul><li>block - {block:BlockName}</li>
+<li>variable - {VariableName}</li>
+</ul><p><a href="http://www.tumblr.com/docs/en/custom_themes#basic_variables">Here is a resource of the basic BlockNames and VariableNames available</a>. As you can see from this resource, the VariableNames and BlockNames are separated by each type of Post. This is attributed to, as I said earlier, how Tumblr lets you style each of your posts separately.</p>
+<p><strong>You can let the user of your theme choose some of the properties such as colors</strong></p>
+<p>Tumblr uses things called<code>&lt;meta&gt;</code> tags to 1. tell Tumblr that you want these properties to be customizable and 2. set default values to these properties.</p>
+<p>To put it simply, these <code>&lt;meta&gt;</code> tags have 2 attributes: <code>name</code> and <code>content</code>.</p>
+<ul><li><code>name</code> is the name you can assign to that particular property somewhere in your HTML.</li>
+<li><code>content</code> is the default value you assign to that property. Ex: if <code>name</code> is referring to a colorProperty, you may want to set the <code>content</code> to <code>"#666666"</code>.</li>
+</ul><h3>Alright, let&#8217;s actually get into some code.</h3>
+<p>Again, this is just a basic tutorial, the bare bones of an adequate Tumblr theme. I will leave the CSS to you and only cover the HTML part (because the CSS is a little self-explanatory).</p>
+<p>Something you could do right now is to take your favorite Tumblr theme, apply it to your site, go into Customize, Edit HTML, and strip away the CSS. Look over the HTML leftover a bit, remember the syntax for blocks and variables, and you should be able to figure it out from there (or just use that as a model and write your own barebones just with different class/id names, then plop on your styllings).</p>
+<p>(Usually the theme coder will organize the code in a way that all the CSS stylings will be located in <code>&lt;head&gt;&lt;style&gt; Here &lt;/style&gt;&lt;/head&gt;</code>).</p>
+<p><a href="http://www.tumblr.com/docs/en/custom_themes">Scroll down a bit to where it says &#8220;here&#8217;s an example of the complete markup of a theme&#8221;</a>, if you don&#8217;t want to use the strip-away-stylings method. These are the &#8220;barebones&#8221; of a Tumblr theme. If you just want a simple normal Tumblr theme, you could just use this as the HTML.</p>
+<p>However, if you maybe, I don&#8217;t know, don&#8217;t want the <strong>{Caption}</strong>s to show on your Image Posts or don&#8217;t want the <strong>{Title}</strong>s to show on your Text Posts, you may want to edit your barebones a bit so that that variable doesn&#8217;t show.</p>
+<p>This requires an understanding of how Tumblr renders your theme. Let&#8217;s take the most basic Post type there is: Text. Taken from the above resource:</p>
+<pre><code>
+{block:Text}
+    &lt;li class="post text"&gt;
+        {block:Title}
+            &lt;h3&gt;&lt;a href="{Permalink}"&gt;{Title}&lt;/a&gt;&lt;/h3&gt;
+        {/block:Title}{Body}
+    &lt;/li&gt;
+{/block:Text}
+</code></pre>
+<p>This block will determine what all of your Text posts will look like.</p>
+<p><strong><img alt="image" src="https://31.media.tumblr.com/c10f45c84c568dfb21dcf007516987ae/tumblr_inline_n06hrbDXGp1swypvf.png"/></strong></p>
+
+<p>These, taken from <a href="http://www.tumblr.com/docs/en/custom_themes#basic_variables">here</a> are the different variables and blocks that apply to Text posts.</p>
+<p>Starting from the first line, <code>{block:Text}</code> is like an HTML tag, and it says that anything within the <code>{block:Text}</code> and <code>{/block:Text}</code> tags are going to be the contents of each Text post you have.</p>
+<p>So, if I decided to write</p>
+<pre><code> {block:Text} &lt;p&gt;Hi&lt;/p&gt; {/block:Text}</code></pre>
+<p>If I have 4 text posts, all 4 text posts would look like <code>&lt;p&gt;Hi&lt;/p&gt;</code>. Note that in this modification, your actual Text post&#8217;s content is not displayed. This is because we didn&#8217;t reference the content&#8217;s variable name.</p>
+<p>On the third line, we see <code>{block:Title}</code>. This block acts very similarly to the <code>{block:Text}</code>. The variable <code>{Title}</code> calls whatever Title your Text post has. It is also wrapped with <code>&lt;a&gt;</code> and <code>&lt;h3&gt;</code> tags. That way, every Text post&#8217;s Title will show up wrapped in said tags. The same can be said for <code>{Body}</code>, which displays your Text post&#8217;s body.</p>
+<p>Going back to how before, we couldn&#8217;t see the contents of posts in our Text block, calling the <code>{Title}</code> and <code>{Body}</code> variables tells Tumblr to grab the content in said variables and display it. It&#8217;s kind of like having variables but in HTML. It&#8217;s also similar to <code>&lt;?php echo($Title); ?&gt;</code> where <code>$Title</code> is a variable corresponding to the Title of each post.</p>
+<p>Now, suppose we want the theme user to decide the color of the <code>{Title}</code>, which is wrapped with <code>&lt;h3&gt;</code> tags. You should make a <code>&lt;style&gt;&lt;/style&gt;</code> block in the header of your HTML.</p>
+<p>Generally, if you want to change the color of a <code>&lt;h3&gt;</code>, you would just do:</p>
+<pre><code>&lt;style&gt; h3 { font-color: red; } &lt;/style&gt;</code></pre>
+<p>However, you want the user to be able to edit the <code>font-color</code> field. Do this by using Tumblr&#8217;s <code>&lt;meta&gt;</code> tags and variables. There is a very good example of such <a href="http://www.tumblr.com/docs/en/custom_themes#basic_variables">here</a>, screenshotted below.</p>
+<p><strong><img alt="image" src="https://31.media.tumblr.com/1a8f13f06a5066e819a4bdb6c0751949/tumblr_inline_n06hppUbGs1swypvf.png"/></strong></p>
+
+<p>There are different kinds of &#8220;custom variables&#8221; you can create in Tumblr; they are mostly for the custom font/color/if selections. To enable a &#8220;custom variable&#8221; to be used and changed by the user, add this into your header:</p>
+<pre><code>&lt;meta name="type:NAMEOFVAR" content="DEFAULTVALUE"/&gt;</code></pre>
+<p>Where <code>type</code> can be replaced with <code>font</code>, <code>color</code>, <code>if</code>.</p>
+<p>Going back to our problem of wanting the user to be able to select the color of the <code>&lt;h3&gt;</code> text, the <code>&lt;meta&gt;</code> tag would look like:</p>
+<p><code>&lt;meta name="color:Header3" content="red"&gt;</code></p>
+<p>Here, the default color of your <code>&lt;h3&gt;</code> will be red. The CSS should therefore be changed to:</p>
+<p><code> &lt;style&gt; h3 { color: {color:Header3}; } &lt;/style&gt;</code></p>
+<p>Otherwise, your changes to the color won&#8217;t be applied to the actual <code>&lt;h3&gt;</code>.</p>
+<p>If the type you chose is <code>font</code>, your user will be able to select the font using:</p>
+<p><img alt="image" src="https://31.media.tumblr.com/e4be6029d3edafd66763f4b79ba2c3c8/tumblr_inline_n06hrvzK991swypvf.png"/></p>
+<p>If your type is <code>color</code>, your user will be able to select the color using:</p>
+<p><img alt="image" src="https://31.media.tumblr.com/957d3dbfc2a43801ca022d25a74adff2/tumblr_inline_n06hskCH981swypvf.png"/></p>
+
+<p></p>
+<p>Meta names <code>font</code> and <code>color</code> are self-explanatory as to what they refer to. <code>if</code> is used as booleans (true/false values). For example, you can make a boolean variable to control whether or not you want your blog to show tags on your posts. In this case, your content will be either 0 or 1 (0 = false, 1 = true). You would use these variables in the HTML instead of the CSS <code>&lt;style&gt;</code> tags.</p>
+<p>Suppose your <code>&lt;meta&gt;</code> tag was the code snippet below and you wanted control on whether you show a cheesey <code>&lt;p&gt;Hi, welcome to my blog&lt;/p&gt;</code> message on your page.</p>
+<pre><code>&lt;meta name="if:Show Greeting" content="1" /&gt;</code></pre>
+<p>In your HTML body, this custom boolean variable will be interpretted as a block. You should have:</p>
+<pre><code>{block:IfShowGreeting} &lt;p&gt;Hi, welcome to my blog&lt;/p&gt; {/block:IfShowGreeting}</code></pre>
+<p>Note that the block name should be the meta name truncated. Here, the cheesey message would only be displayed if the <code>content</code> was set to <code>1</code>. The user can control this visibility by seeing this on their customize page:</p>
+<p><img alt="image" src="https://31.media.tumblr.com/02cefb16a65df28375476896bd686210/tumblr_inline_n06htq7N1w1swypvf.png"/></p>
+
+<p>These are just the basics to get you started on the HTML: understanding blocks, variables, &#8220;custom variables&#8221;, and how Tumblr renders your theme. After you get your barebones down, you should try playing around with the stylings.</p>

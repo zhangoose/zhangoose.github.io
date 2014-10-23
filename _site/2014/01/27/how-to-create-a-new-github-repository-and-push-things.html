@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>How to create a new github repository and push things to it</title>
+<meta name="description" content="I like to code and doodle. Coodle. Wait no jk that sounds weird heh.
+">
+
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/third-party/css/foundation.css">
+<link rel="stylesheet" href="/third-party/css/foundation.min.css">
+<link rel="canonical" href="http://www.zhalex.net/2014/01/27/how-to-create-a-new-github-repository-and-push-things.html">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+	<style>
+		body{
+			background-color: #fdfdfd;
+			background-image: url('/img/bg/geometry2.png');
+			background-attachment: fixed;
+		}
+	
+		
+	</style>
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">alex zhang</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">about</a>
+          
+        
+          
+          <a class="page-link" href="/blog/">blog</a>
+          
+        
+          
+          <a class="page-link" href="/classes/">classes</a>
+          
+        
+          
+          <a class="page-link" href="/doodles/">doodles</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/projects/">projects</a>
+          
+        
+          
+          <a class="page-link" href="/todo/">to-do</a>
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">How to create a new github repository and push things to it</h1>
+    <p class="post-meta">Jan 27, 2014</p>
+  </header>
+
+  <article class="post-content">
+    <p>For <a href="https://github.com/chickenchowminh" target="_blank">Minh</a> </p>
+<p><strong>NOTE: this is just how I do it, it might not be the most efficient way (still trying to figure that one out), but it works. </strong></p>
+<p>I use shell to interact with my Github repositories because I&#8217;m using a Linux machine. </p>
+<p>So, first thing you should do is install git onto your machine, you can use: </p>
+<pre>sudo apt-get install git</pre>
+<p>Or you could just test if you have git or not by simply typing in the command &#8220;git&#8221;. But if you do type that in, you should see:</p>
+<p><img alt="image" src="https://31.media.tumblr.com/0cccc6fe7d0e7af3805ce596565e70d5/tumblr_inline_n033ndWyvr1swypvf.png"/></p>
+
+<p>Depending on what kind of shell you use (this is bash). </p>
+<p>This is a good &#8220;cheat-sheet&#8221; kind of thing you can use if you forget what some of the git commands do. </p>
+<p>Alright, so back to how to create a repository &amp; be able to push things to it.</p>
+<p><strong>1. Create a repository using the github.com site. </strong></p>
+<p><img alt="image" src="https://31.media.tumblr.com/2278b3ce3354aec8819fe89fafa2e04f/tumblr_inline_n0347iRAN21swypvf.png"/></p>
+
+<p>Creating your repository, you&#8217;ll end up with a screen like: <img alt="image" src="https://31.media.tumblr.com/4d975a423b4218944e51335bc599111c/tumblr_inline_n034bq6IzO1swypvf.png"/></p>
+<p>I&#8217;m just going to fill it out like so. But be aware that it&#8217;s very important what you call your repository. So create the repository: <img alt="image" src="https://31.media.tumblr.com/3926aedf36ef1d1df39a6ef9828b0269/tumblr_inline_n034htUdsw1swypvf.png"/></p>
+
+<p>So in that bottom-right corner, you&#8217;ll see something that says <strong>"HTTPS</strong><strong> clone URL&#8221;</strong>. Using that, you can clone your repository into your local file system (or any server you SSH into, as long as that server has git). What is cloning? Your repository is essentially a folder with files in it. When you clone a repository, you&#8217;re taking that folder and downloading it into your own file system. </p>
+<p><strong>2. Clone your repository and initialize it.</strong></p>
+<pre>git clone {YOUR HTTPS URL}</pre>
+<p>With the &#8220;git clone&#8221; command, you can clone your repository into your file system. Replace {YOUR HTTPS URL} with the HTTPS clone URL you saw on the bottom right corner of your repository on the github.com webpage (should have a .git suffix). When you do that, you should see your repository in the folder you git clone&#8217;d in. The name of that folder should match your repository name (which is why I said the name will be important).</p>
+<p>Go ahead and open up that folder you cloned and its contents should match the ones in your github repository that you see on the website. So, for my test-repo, I should see a README.md. Now you should initialize your repository. Think of initializing as preparing your now local folder for interacting with github. If you don&#8217;t do this, you can&#8217;t update your repository. Of course, you&#8217;ll be able to update your local folder, but the changes won&#8217;t be seen online. You can initialize this by typing this into the shell (while you&#8217;re cd&#8217;d into your repository folder):</p>
+<pre>git init</pre>
+<p><strong>3. Add files, commit, and push.</strong></p>
+<p>So now you can add files to your local repository folder. You can use vim, notepad(++), an IDE, any editor. As long as you save those files in that repository folder. </p>
+<p>Now that you have files, let&#8217;s add them all to your files-I-want-committed list. </p>
+<p><img alt="image" src="https://31.media.tumblr.com/644ae2e1372f42ba5454a5743f59be52/tumblr_inline_n035l6obvV1swypvf.png"/></p>
+
+<p>Right now, these are the files in my test-repo repository folder that I have saved locally. I want to add all these files to my files-I-want-committed list. </p>
+<p>Before we add these files to that list, let&#8217;s first check if our list is empty or not. Do this by: </p>
+<pre>git status</pre>
+<p>Right now, since I haven&#8217;t added any files to this list, I get a message that says: <img alt="image" src="https://31.media.tumblr.com/857f6c36009b3566da5f2e5205f4cb41/tumblr_inline_n035qgQsk81swypvf.png"/></p>
+
+<p>Basically, all the files I want to add right now are &#8220;untracked&#8221;, meaning they are NOT added to the files-I-want-committed list. As you can tell from the last line, you can &#8220;track&#8221; files by using &#8220;git add {FILEPATH}&#8221;. Note that the {FILEPATH} does not need to be the complete filepath from the root, just from the local repository directory. </p>
+<p>But in this case, since we just want to add ALL the files, you can just use: </p>
+<pre>git add *</pre>
+<p>Note that the asterisk means &#8220;all files in that folder&#8221;. This will then make all of your files &#8220;tracked&#8221; or added to the files-I-want-committed list (they are synonymous). </p>
+<p>Of course, if you wanted to track <em>specific</em> files, you&#8217;d have to specify the filename after the git add. For example, I only want to track one.txt, two.txt, and four.txt because I don&#8217;t want to yet change three.txt in my github repository for whatever reason. To do this, I&#8217;d need to type in:</p>
+<pre>git add one.txt<br/>git add two.txt
+git add dir1/four.txt
+</pre>
+<p>Now that we tracked a bunch of files, we want to commit them now. If I ask for the git status right now, (using the previous git add sequence): </p>
+<p><img alt="image" src="https://31.media.tumblr.com/9d4aa1bac42cfc832634255f46945bd3/tumblr_inline_n03657mR0J1swypvf.png"/></p>
+
+<p>I usually do a git status after every couple git add statements to make sure all of my files are added, but that&#8217;s just me being paranoid. </p>
+<p>Now you&#8217;re ready to commit. Committing on github is how github manages your versions. You can track your file versions using your commits. That is why github allows you to commit with a commit message. The short way I include messages for github (I know there are more ways to do this) is: </p>
+<pre>git commit -m "my first commit, changed one.txt, two.txt, four.txt"</pre>
+<p>Ideally, your commit messages should be useful. I&#8217;d like to think of them as tweets (they should be as concise as possible). Or, if you&#8217;re more of a writer, theses statements (jk, that&#8217;s just scary).</p>
+<p><img alt="image" src="https://31.media.tumblr.com/be1a98e649bc167f2e805b52f882e5c2/tumblr_inline_n036efNqSB1swypvf.png"/></p>
+
+<p>After this, you&#8217;re ready to push. OR, you could commit more things THEN push it. I went ahead and added a &#8220;five.txt&#8221; and committed it. </p>
+<p>To push commits means to make them available to everyone who looks at your git repository. This is also useful if you&#8217;re working on a group project and you&#8217;re all accessing this one repository. None of your team members are going to see your commits/changes unless you push your commits. </p>
+<pre>git push origin master</pre>
+<p>After this, git is going to prompt you for your username and password for github. Enter that in and your push should go through.</p>
+<p><img alt="image" src="https://31.media.tumblr.com/d502529e8eb19975532b501455d4b622/tumblr_inline_n036lshOyl1swypvf.png"/></p>
+
+<p>After this, you should see it on your repository on the github webpage.</p>
+<p><img alt="image" src="https://31.media.tumblr.com/9307a2ec716592f7e90ee4ff3330cf59/tumblr_inline_n036njgsch1swypvf.png"/></p>
+
+<p>And if you want to see your commits on the webpage, go to the link that says &#8220;{NUMBER} Commits&#8221; above this table.</p>
+<p><img alt="image" src="https://31.media.tumblr.com/73468bbcf0348aa2bb0e90338267f203/tumblr_inline_n036q56srv1swypvf.png"/></p>
+
+<p>Remember how I added that extra five.txt file? I also committed that &#8220;first commit&#8221; beforehand. I didn&#8217;t push in between the two commits, but the separate commits still show up. This has been very helpful when I didn&#8217;t feel like pushing after every edit I made, so you don&#8217;t have to worry about pushing all the time, until the end of the day or something. </p>
+<p>Hopefully this was helpful, there are way more ways to do this simple process, but this is just how I do it. If I find any better ways, I will share in tutorial form here. </p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+	<div class="wrapper">
+
+		<!--
+		<h2 class="footer-heading">alex zhang</h2>
+
+		<div class="footer-col-wrapper">
+			<div class="footer-col  footer-col-1">
+				<ul class="contact-list">
+					<li>alex zhang</li>
+					<li><a href="mailto:hi.zhalex@gmail.com">hi.zhalex@gmail.com</a></li>
+				</ul>
+			</div>
+			-->
+
+		<!--<div class="footer-col  footer-col-2">-->
+			<ul class="social-media-list">
+				
+				<li>
+				<a href="https://github.com/zhangoose">
+					<span class="icon  icon--github">
+						<svg viewBox="0 0 16 16">
+							<path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+						</svg>
+					</span>
+
+					<span class="username">github</span>
+				</a>
+				</li>
+				
+
+				
+				<li>
+				<a href="https://twitter.com/hizhalex">
+					<span class="icon  icon--twitter">
+						<svg viewBox="0 0 16 16">
+							<path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+							c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+						</svg>
+					</span>
+
+					<span class="username">twitter</span>
+				</a>
+				</li>
+				
+				<li>... or just, like, you know, <a href="mailto:hi.zhalex@gmail.com">email</a> me.</li>
+			</ul>
+		</div>
+
+		<!--
+			<div class="footer-col  footer-col-3">
+				<p class="text">I like to code and doodle. Coodle. Wait no jk that sounds weird heh.
+</p>
+			</div>
+	</div>
+			-->
+
+</div>
+
+</footer>
+
+
+  </body>
+
+</html>

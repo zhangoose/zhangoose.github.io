@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>alex zhang</title>
+    <description>I like to code and doodle. Coodle. Wait no jk that sounds weird heh.
+</description>
+    <link>http://www.zhalex.net/</link>
+    <atom:link href="http://www.zhalex.net/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Wed, 22 Oct 2014 19:52:58 -0400</pubDate>
+    <lastBuildDate>Wed, 22 Oct 2014 19:52:58 -0400</lastBuildDate>
+    <generator>Jekyll v2.3.0</generator>
+    
+      <item>
+        <title>stuff I learned about bookmarklets</title>
+        <description>&lt;p&gt;So the past weekend I made my first bookmarklet &lt;a href=&quot;https://github.com/zhangoose/almost-web-fking-reg&quot; title=&quot;almost web fking reg&quot;&gt;here&lt;/a&gt; and here&amp;#8217;s a couple things I learned (if I&amp;#8217;m wrong, please let me know n__n).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;First, to actually add a bookmarklet to your browser&lt;/strong&gt; (at least in Chrome), you do (ignore the background).&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;image&quot; src=&quot;https://31.media.tumblr.com/68cbf1c0bc0171c3c594293254ab2a37/tumblr_inline_ndedye0SqL1swypvf.png&quot;/&gt;&lt;/p&gt;
+&lt;p&gt;Then click Organize &amp;gt; Add Page.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&quot;image&quot; src=&quot;https://31.media.tumblr.com/97c6f90025d03125d7b63cfa44290f5d/tumblr_inline_ndee0dxOfX1swypvf.png&quot;/&gt;&lt;/p&gt;
+&lt;p&gt;Name your bookmark something, anything, then paste your code into the part where you would have put the URL. &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pasting just &lt;code&gt;console.log(&quot;hi&quot;); &lt;/code&gt;in the URL field won&amp;#8217;t work. &lt;/strong&gt;You should prefix your code with: &lt;/p&gt;
+&lt;pre&gt;javascript: (
+    function(){
+        //...... your code here 
+    }();
+&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;To include jQuery into your javascript, &lt;/strong&gt;you should wrap your code with: &lt;/p&gt;
+&lt;pre&gt;    
+javascript:
+    (function(){
+    
+    	// the minimum version of jQuery we want
+    	var v = &quot;1.3.2&quot;;
+    
+    	// check prior inclusion and version
+    	if (window.jQuery === undefined || window.jQuery.fn.jquery &amp;lt; v) {
+    		var done = false;
+    		var script = document.createElement(&quot;script&quot;);
+    		script.src = &quot;http://ajax.googleapis.com/ajax/libs/jquery/&quot; + v + &quot;/jquery.min.js&quot;;
+    		script.onload = script.onreadystatechange = function(){
+    			if (!done &amp;amp;&amp;amp; (!this.readyState || this.readyState == &quot;loaded&quot; || this.readyState == &quot;complete&quot;)) {
+    				done = true;
+    				initMyBookmarklet();
+    			}
+    		};
+    		document.getElementsByTagName(&quot;head&quot;)[0].appendChild(script);
+    	} else {
+    		initMyBookmarklet();
+    	}
+    	
+    	function initMyBookmarklet() {
+    		(window.myBookmarklet = function() {
+    			// your JavaScript code goes here!
+    		})();
+    	}
+    
+    })();
+&lt;/pre&gt;
+&lt;p&gt;(I got the above from &lt;a href=&quot;http://www.smashingmagazine.com/2010/05/23/make-your-own-bookmarklets-with-jquery/&quot; title=&quot;smashing magazine&quot;&gt;this Smashing Magazine&amp;#8217;s article&lt;/a&gt;). &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Apparently you can&amp;#8217;t use comments in bookmarklets? &lt;/strong&gt;Not too sure if this is right or not, but whenever I put in comments, it&amp;#8217;d break at the line before the comment and then a console log saying something about &amp;#8220;undefined is not a function&amp;#8221; or something would print out. Again, not sure if this is actually a thing or not.&lt;/p&gt;
+&lt;p&gt;But yeah! Those are my uh 4 cents I guess, in total, about bookmarklets. Took a shitload of googling to find those 4 out (actually the last one, no one posted about), so have fun. &lt;/p&gt;
+</description>
+        <pubDate>Mon, 13 Oct 2014 15:40:37 -0400</pubDate>
+        <link>http://www.zhalex.net/2014/10/13/stuff-i-learned-about-bookmarklets.html</link>
+        <guid isPermaLink="true">http://www.zhalex.net/2014/10/13/stuff-i-learned-about-bookmarklets.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>How to select html nodes by ID with jquery when the id contains a dot?</title>
+        <description>&lt;a href=&quot;http://stackoverflow.com/questions/605630/how-to-select-html-nodes-by-id-with-jquery-when-the-id-contains-a-dot&quot;&gt;How to select html nodes by ID with jquery when the id contains a dot?&lt;/a&gt;&lt;br/&gt;&lt;blockquote class=&quot;link_og_blockquote&quot;&gt;If my html looked like this: &amp;amp;lt;td class=&amp;#8221;controlCell&amp;#8221;&amp;amp;gt; &amp;amp;lt;input class=&amp;#8221;inputText&amp;#8221; id=&amp;#8221;SearchBag.CompanyName&amp;#8221; name=&amp;#8221;SearchBag.CompanyName&amp;#8221; type=&amp;#8221;text&amp;#8221; value=&amp;#8221;&amp;#8221; /&amp;amp;gt; &amp;amp;lt;/td&amp;amp;gt; How cou&amp;#8230;&lt;/blockquote&gt;
+&lt;p&gt;TOTAL LIFE SAVER RIGHT NOW AT HACKRU. Apparently, the same thing goes for colons!! So sad I didn&amp;#8217;t know this before. &lt;/p&gt;
+</description>
+        <pubDate>Sat, 11 Oct 2014 18:47:48 -0400</pubDate>
+        <link>http://www.zhalex.net/2014/10/11/how-to-select-html-nodes-by-id-with-jquery-when-the-id.html</link>
+        <guid isPermaLink="true">http://www.zhalex.net/2014/10/11/how-to-select-html-nodes-by-id-with-jquery-when-the-id.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>let&#39;s make bunnies</title>
+        <description>&lt;a href=&quot;http://zhalex.tumblr.com/make-bunniez&quot;&gt;let&#39;s make bunnies&lt;/a&gt;&lt;br/&gt;&lt;p&gt;an old silly project I did last year, figured I&amp;#8217;d make a tumblr page for it because why not. &lt;/p&gt;
+</description>
+        <pubDate>Sun, 24 Aug 2014 03:17:36 -0400</pubDate>
+        <link>http://www.zhalex.net/2014/08/24/lets-make-bunnies.html</link>
+        <guid isPermaLink="true">http://www.zhalex.net/2014/08/24/lets-make-bunnies.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>fathers&#39; day 2014 card</title>
+        <description>&lt;a href=&quot;http://zhalex.tumblr.com/fathers-day&quot;&gt;fathers&#39; day 2014 card&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I&amp;#8217;m a broke college student, so I coded my fathers&amp;#8217; day gift/card. &lt;a href=&quot;http://jsfiddle.net/KtLwv/10/&quot;&gt;Jsfiddle here.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A thank you to &lt;a href=&quot;http://jsfiddle.net/NYJWx/4/&quot;&gt;this fiddle&lt;/a&gt; by &lt;a href=&quot;http://stackoverflow.com/users/1059101/jai&quot;&gt;this person&lt;/a&gt; on &lt;a href=&quot;http://stackoverflow.com/questions/15517966/jquery-rotate-a-div&quot;&gt;this thread&lt;/a&gt;. Saved my ass.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 12 Jun 2014 22:47:00 -0400</pubDate>
+        <link>http://www.zhalex.net/2014/06/12/fathers-day-2014-card.html</link>
+        <guid isPermaLink="true">http://www.zhalex.net/2014/06/12/fathers-day-2014-card.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>killing applications on crunchbang</title>
+        <description>&lt;p&gt;So I use the debian-based linux distro called Crunchbang (that apparently not a lot of people know about). I use it because my netbook can&amp;#8217;t do jackshit but Crunchbang (no, not even the windows starter  pack).&lt;/p&gt;
+&lt;p&gt;The sad part is that after 1.5 whole years of using this distro and after 2.5 whole years of using some sort of linux, I finally look up how to kill applications (like in Windows, we have task manager).&lt;/p&gt;
+&lt;p&gt;Turns out that if you hit Alt + F2, it&amp;#8217;ll bring up the Run prompt &amp;lt;&amp;#8212; I actually didn&amp;#8217;t know that. I knew about the Alt + F3 thing, but not Alt + F2. Then, there&amp;#8217;s this thing called &lt;strong&gt;xkill&lt;/strong&gt;. So if you type that in, you can kill any application you want! It&amp;#8217;s actually really friendly and easy to use. You just &amp;#8230; click on the window whose application you want to kill. So simple. Why didn&amp;#8217;t I know it before? &lt;/p&gt;
+&lt;p&gt;Since my explanation sucks, &lt;a href=&quot;http://crunchbang.org/forums/viewtopic.php?pid=13589%23p13589&quot;&gt;here&amp;#8217;s the person I got this solution from! &lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;&amp;#8230;..&lt;/p&gt;
+&lt;p&gt;After looking at the source he linked to in his post, I feel so dumb because I totally forgot about the &amp;#8220;kill&amp;#8221; command&amp;#8230; smh.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 06 May 2014 00:09:11 -0400</pubDate>
+        <link>http://www.zhalex.net/2014/05/06/killing-applications-on-crunchbang.html</link>
+        <guid isPermaLink="true">http://www.zhalex.net/2014/05/06/killing-applications-on-crunchbang.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>reading documentation is a beautiful thing</title>
+        <description>&lt;p&gt;So, a week or two ago at work, I realized there was something wrong with my Zend app that is supposed to access the Google Calendar API (GData, as it is built into Zend). Whenever I had recurring events, I would only get the first instance of that event in my range of search. I told my boss, he told me to fix it (naturally), and so for a week and a half I&amp;#8217;ve been developing some way to handle this. I&amp;#8217;ve been parsing the recurrence RRULE tag in my associative array I get back from Google, checking each day to see if it&amp;#8217;s a recurrence date, storing it all into massive arrays, etc. &lt;/p&gt;
+&lt;p&gt;Then today, I was reading through the GData Calendar EventQuery documentation (like the actual php file because I wanted the descriptions of each function. Note that the names are all listed &lt;a href=&quot;http://framework.zend.com/apidoc/1.10/&quot;&gt;here, this buried Zend-treasure)&lt;/a&gt; and I found something called getSingleEvents(). Now this got me thinking something along the lines of &amp;#8220;oh shit, is this what I think it is, is this the recurrence handler&amp;#8221; because I actually did hear about this somewhere in the Zend API comments, but chose to ignore it. &lt;/p&gt;
+&lt;p&gt;Anyways, this ended up not working, but then after some googling, I found that setParams(&amp;#8216;singleevents&amp;#8217;,&amp;#8217;true&amp;#8217;) worked and I was like OWWEwepfoakjweopkaweroiEIWEFjpOWEJIPWEkf to say the least.&lt;/p&gt;
+&lt;p&gt;So, I told my boss, kind of sad, really sad actually. Scrapped my poor code to handle recurring events, I&amp;#8217;m probably more sad because of that.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson learned?&lt;/strong&gt; always look through documentation before doing something retarded like implementing your own recurrence handler. smh.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 24 Apr 2014 12:52:48 -0400</pubDate>
+        <link>http://www.zhalex.net/2014/04/24/reading-documentation-is-a-beautiful-thing.html</link>
+        <guid isPermaLink="true">http://www.zhalex.net/2014/04/24/reading-documentation-is-a-beautiful-thing.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>GitLab.com | Open Source Git Management Software</title>
+        <description>&lt;a href=&quot;http://www.gitlab.com&quot;&gt;GitLab.com | Open Source Git Management Software&lt;/a&gt;&lt;br/&gt;&lt;p&gt;I am such a cheapo. If I can get something for free, I am not going to pay for the added on features (unless it&amp;#8217;s Notability because that app is amazing, but that&amp;#8217;s for another day).&lt;/p&gt;
+&lt;p&gt;So, I applied for a private repository through Github (because I have an edu email account and for some reason I fucked up while registering for a Github account so I didn&amp;#8217;t get my private repository) a while ago, they didn&amp;#8217;t get back to me, and now I&amp;#8217;m at that point where I really need version control for my school project. Well, it&amp;#8217;s a school project so I can&amp;#8217;t make it a public repository. I&amp;#8217;m also for some reason against using bitbucket (I have no idea why, probably because I associate it with mercurial even though it does have git functionality). &lt;/p&gt;
+&lt;p&gt;After lots of googling, I came across this &lt;a href=&quot;http://stackoverflow.com/questions/2378120/is-there-a-free-private-git-repository&quot;&gt;SO question/answe&lt;/a&gt;r. If you scroll down a bit, you&amp;#8217;ll see some guy who posted a REALLY long response that kind of looks like a job listing that&amp;#8217;s being all like &amp;#8220;oh-yeah-we-need-this-and-this-and-this-and-this-and-&amp;#8230;&amp;#8230;-and-this-and-this-but-oh-right-i-forgot-to-mention-this-is-an-entry-level-position-so-we-don&amp;#8217;t-pay-you-anything.&amp;#8221; Though it sounded like a straight-up advertisement with like no discreetness at all about it being an advertisement, I decided to check out this Gitlab&amp;#8212;mostly because the ad opened with something about it having free private repositories. &lt;/p&gt;
+&lt;p&gt;First thought: damn this looks just like Github. Second thought: just kidding, pretty much every project manager looks like Github. Maybe even bitbucket (which I have never actually used). &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Works like a charm&lt;/strong&gt; (mostly since it also uses git (oh shit serious? because &lt;em&gt;git&lt;/em&gt;lab totes didn&amp;#8217;t give it away)), &lt;strong&gt;also links with your gmail/twitter/github&lt;/strong&gt; (not too sure if I like that feature, as much as I hate creating new accounts, I hate linking a little more, unless I&amp;#8217;m working on a webapp that needs user accounts, then linking is my lazy side&amp;#8217;s biffle), and &lt;strong&gt;is totally private. &lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&amp;#8230;&amp;#8230;..tl;dr- gitlab is valid as a free private repo manager. yep.&lt;/strong&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 16 Apr 2014 23:15:21 -0400</pubDate>
+        <link>http://www.zhalex.net/2014/04/16/gitlab-com-open-source-git-management-software.html</link>
+        <guid isPermaLink="true">http://www.zhalex.net/2014/04/16/gitlab-com-open-source-git-management-software.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>learned of this magic today from my compilers</title>
+        <description>&lt;img src=&quot;http://40.media.tumblr.com/d58c4b2eee228b97037388f16c554f19/tumblr_n3ur1m3yCQ1toercno1_1280.png&quot;/&gt;&lt;br/&gt;&lt;p&gt;Learned of this magic today from my Compilers TA. Sure beats alias-ing. &lt;a href=&quot;http://nerderati.com/2011/03/simplify-your-life-with-an-ssh-config-file/&quot;&gt;Here&amp;#8217;s&lt;/a&gt; a nice tutorial on how to do this.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 11 Apr 2014 01:53:46 -0400</pubDate>
+        <link>http://www.zhalex.net/2014/04/11/learned-of-this-magic-today-from-my-compilers.html</link>
+        <guid isPermaLink="true">http://www.zhalex.net/2014/04/11/learned-of-this-magic-today-from-my-compilers.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Mounting saves my life at work</title>
+        <description>&lt;p&gt;Well, if by life I mean productivity, yes. &lt;/p&gt;
+&lt;p&gt;So a little background information: I usually code using a combination of tmux and vim, to say the least. I work in the Rutgers SAS-IT office on College Ave, whose office is actually just a really small house. Over there, I make super small webapps to do super easy stuff like parse through log files and (what I&amp;#8217;m working on right now), calculating the time between two dates accounting for workhours and holidays. To do that, I have to SSH into a server. However, that server is super basic and doesn&amp;#8217;t have anything (and can&amp;#8217;t have anything) I need to work (tmux and an editable vimrc). Well shit, there goes my productivity right?&lt;/p&gt;
+&lt;p&gt;I know that server file system and I guess the basic ZendFramework setup (well, at least the jail cell I&amp;#8217;m limited to) super well now. Why? I kept cd ../../../&amp;#8230;&amp;#8230;&amp;#8230;-ing EVERYWHERE all the time to get places, then I vim some file, then I forget what I was trying to add to that file, so I have to cd away from that file to vim the previous file I was at, only to cd back to the directory whose file I was going to edit. That was basically how I got things &amp;#8220;done&amp;#8221; for a good 2 months (oh god, the shame). &lt;/p&gt;
+&lt;p&gt;But then the other day, my coworker was observing me cd-ing about and mentioned that I should try to &lt;strong&gt;mount&lt;/strong&gt; the server to a local directory. He explained that if you mount the server to a local directory, you can edit your server files from that local directory and it will be changed on the server, so less SSH-ing. &lt;/p&gt;
+&lt;p&gt;That. was. fucking. awesome. No, seriously, I was like &amp;#8220;what the fuck, you can do that?!?!?!&amp;#8221; So I proceeded to do that and OHMYGAWD I HAVE TMUX. I HAVE A COOL VIMRC. ]&lt;/p&gt;
+&lt;p&gt;So before this turns into a completely fruitless post, &lt;a href=&quot;http://www.howtogeek.com/howto/ubuntu/how-to-mount-a-remote-folder-using-ssh-on-ubuntu/&quot;&gt;here is the tutorial I used to mount my server.&lt;/a&gt; This is actually the ubuntu way (since I&amp;#8217;m running elementaryOS on my work computer), so it&amp;#8217;s probably different for you guys. &lt;/p&gt;
+&lt;p&gt;But yeah, pretty awesome shit, definitely check it out if you&amp;#8217;re as unfortunate as I to not know such a thing existed.&lt;/p&gt;
+&lt;p&gt;orz so hard right now.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;tl;dr-&lt;/strong&gt; mounting a server to your local directory is pretty awesome and &lt;a href=&quot;http://www.howtogeek.com/howto/ubuntu/how-to-mount-a-remote-folder-using-ssh-on-ubuntu/&quot;&gt;here&amp;#8217;s how to do it.&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 07 Apr 2014 09:56:28 -0400</pubDate>
+        <link>http://www.zhalex.net/2014/04/07/mounting-saves-my-life-at-work.html</link>
+        <guid isPermaLink="true">http://www.zhalex.net/2014/04/07/mounting-saves-my-life-at-work.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>get rid of that vim help message</title>
+        <description>&lt;pre&gt;:nmap &amp;lt;F1&amp;gt; &amp;lt;nop&amp;gt; &lt;/pre&gt;
+&lt;p&gt;Finally FINALLY did the deed. Added that line to my vimrc. &lt;/p&gt;
+&lt;p&gt;For people who really hate accidentally hitting the F1 button their keyboards while in vim and having that really annoying help screen pop up, append that line to your vimrc and it&amp;#8217;ll probably extend your life. Less stress, y&amp;#8217;know. &lt;/p&gt;
+</description>
+        <pubDate>Sun, 23 Feb 2014 18:18:00 -0500</pubDate>
+        <link>http://www.zhalex.net/2014/02/23/get-rid-of-that-vim-help-message.html</link>
+        <guid isPermaLink="true">http://www.zhalex.net/2014/02/23/get-rid-of-that-vim-help-message.html</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>

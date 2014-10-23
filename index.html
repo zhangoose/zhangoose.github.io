@@ -1,47 +1,144 @@
-<html>
+---
+layout: default
+---
 
-	<head>
-		<title>zhalex | student & developer</title>
-		<link rel="stylesheet" type="text/css" href="style/index-style.css" />
-		<link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
-		<meta name="viewport" content="width=device-width, height=device-height">
-	</head>
-	<body>
-		<div id="nav_bar">
-			<ul>
-				<li class="nav" style="background-color: #D1CCCC">
-				About
-				</li>
-				<li class="nav">
-				Projects
-				</li>
-				<li class="nav">
-				Classes
-				</li>
-				<li class="nav">
-				Doodles
-				</li>
-				<li class="nav">
-				To-do
-				</li>
-			</ul>
-		</div>
-		<div id="con_id">
-			<object data="pages/about.html" id="obj_about" class="content"></object>
-			<object data="pages/to-do.html" id="obj_todo" class="content init_hide"></object>
-			<object data="pages/projects.html" id="obj_projects" class="content init_hide"></object>
-			<object data="pages/doodles.html" id="obj_doodles" class="content init_hide"></object>
-			<object data="pages/classes.html" id="obj_classes" class="content init_hide"></object>
-		</div>	
-		<div id="soc_med">
-			<a href="http://www.github.com/zhangoose"><img src="img/soc_med/github_alt.png"/></a>
-			<a href="mailto:hi.zhalex@gmail.com?subject=hi alex"><img src="img/soc_med/google_talk.png"/></a>
-			<a href="http://zhalex.tumblr.com"><img src="img/soc_med/tumblr.png"/></a>
-			<a href="http://www.twitter.com/hizhalex"><img src="img/soc_med/twitter_alt.png"/></a>
-		</div>
+<style>
+#boom{
+	height: 304px;
+	width: 686px;
+}
 
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script type="text/javascript" src="script.js"></script>
-	</body>
+</style>
 
-</html>
+<div class="home">
+	<div id="boom"></div>	
+</div>
+
+<!--- insanely bad form lol -->
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script> 
+
+
+function get_xy(coord){
+	//get numerical xy coords
+	var	num_coords = {'x': -1, 'y': -1},
+			unc_coord = coord.substr(1),
+			arr_coord = unc_coord.split('-');
+
+	num_coords['x'] = arr_coord[0];
+	num_coords['y'] = arr_coord[1];
+
+	return num_coords;
+}//end of get_xy
+
+function get_affected(start){
+	//ugly as fuck code 
+	var ret = []; // of {x,y} coords 
+	start['y'] = parseInt(start['y']);
+	start['x'] = parseInt(start['x']);
+
+	//north
+	ret.push({'x': start['x'], 'y': start['y'] + 1});
+	ret.push({'x': start['x'], 'y': start['y'] + 2});
+	ret.push({'x': start['x'], 'y': start['y'] + 3});
+	//south
+	ret.push({'x': start['x'], 'y': start['y'] - 1});
+	ret.push({'x': start['x'], 'y': start['y'] - 2});
+	ret.push({'x': start['x'], 'y': start['y'] - 3});
+	//west
+	ret.push({'x': start['x'] - 1, 'y': start['y']});
+	ret.push({'x': start['x'] - 2, 'y': start['y']});
+	ret.push({'x': start['x'] - 3, 'y': start['y']});
+	//east
+	ret.push({'x': start['x'] + 1, 'y': start['y']});
+	ret.push({'x': start['x'] + 2, 'y': start['y']});
+	ret.push({'x': start['x'] + 3, 'y': start['y']});
+	//diagonals
+	ret.push({'x': start['x'] + 1, 'y': start['y'] + 1});
+	ret.push({'x': start['x'] - 1, 'y': start['y'] - 1});
+	ret.push({'x': start['x'] + 1, 'y': start['y'] - 1});
+	ret.push({'x': start['x'] - 1, 'y': start['y'] + 1});
+	//self
+	ret.push({'x': start['x'], 'y': start['y']});
+
+	return ret;
+}//end of get_affected
+
+function idify(xys){
+	// put into an array in cX-Y form
+	var ret = [];
+	var xy;
+	for(var i = 0; i < xys.length; i++){
+		xy = xys[i];
+		ret.push('c' + xy['x'] + '-' + xy['y']);	
+	}//end of foreach xy
+	return ret;
+}//end of idify
+
+function go_boom(coord){
+	//onclick function
+	// if you click a cell, should change color for 3 nsew & 1 diagonally 
+	var coord_hash = "#" + coord,
+			start_num = 1,
+			h_end_num = 8,
+			w_end_num = 18,
+			xy_coord = get_xy(coord),
+			num_affected_coords = get_affected(xy_coord), // just xy coord stuff 
+			affected_coords = idify(num_affected_coords); // actual c - strung together
+
+	var colors = ['#ffd1dc', '#ff6961', '#f49ac2', '#779ecb', '#fdfd96', '#ffb347', '#cb99c9', '#77dd77'];
+	var color = colors[Math.floor(Math.random()*colors.length)];
+
+	for(var i = 0; i < affected_coords.length; i++){
+		hash_xy = "#" + affected_coords[i];
+		console.log(hash_xy);
+		$(hash_xy).css("background-color", color);
+		window.setTimeout(function(){
+				for(var i = 0; i < affected_coords.length; i++){
+					hash_xy = "#" + affected_coords[i];
+					$(hash_xy).fadeTo("slow", 0.5, function(){
+						$(this).css("background","transparent");	
+					});
+				}
+		}, 1000);
+	}//end of for 
+}//end of go_boom 
+
+function make_grid(id_name){
+	var	i = 1,
+			j = 1,
+			id_hash_name = "#" + id_name,
+			height = $(id_hash_name).height(),
+			width = $(id_hash_name).width()
+			class_name = 'box',
+			pads = 1;
+			//bg_color = "#fdfdfd",
+			bg_color = "transparent",
+			box_dim = 10;
+
+	var limit_outer = (height - (height/box_dim)*2*pads)/box_dim ,
+			limit_inner = (width - (width/box_dim)*pads)/box_dim -4;
+	//console.log("outer is " + limit_outer + " limit inner is " + limit_inner);
+
+
+	for (i = 1; i <= limit_outer; i++) {
+		for (j = 1; j <= limit_inner; j++) {
+			var coord_id = "c"+ i + "-" + j + "";
+			var coord_hash_id = "#" + coord_id;
+			$(id_hash_name).append("<div class='" + class_name + " coord' id='" + coord_id + "' style='height: " + 
+					box_dim + "px; width: " + box_dim + "px; margin: " + pads + "px; background-color: "+bg_color+"; float: left;'></div>");
+		} //end of inner for
+	} //end of outer for 
+}//end of make_grid
+
+var counter = 0;
+make_grid('boom');
+$("#boom > div").mouseover(function(){
+	counter++;
+	if(counter % 3 == 0){
+		go_boom(this.id);
+	}
+});//end of click
+
+</script>
