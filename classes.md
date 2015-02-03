@@ -6,6 +6,12 @@ permalink: /classes/
 
 ###i take classes at rutgers
 
+#### spring 2015
+* operating systems design
+* ornithology
+* wildlife diseases
+* development of labor movement 
+
 #### fall 2014
 * database systems implementation
 * intro artificial intelligence
