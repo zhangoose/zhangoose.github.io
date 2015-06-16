@@ -5,9 +5,10 @@ permalink: /about/
 ---
 
 # oh hay, i'm alex
-* computer science major at Rutgers University (2015)
-* and biological sciences minor!
+* i did undergrad at Rutgers University (2015)
+* major: computer science & minor: biological sciences
 * i like web development
+* ... and birding
 * ... and doodling
 * ... and paper mache-ing
 * ... and sewing
