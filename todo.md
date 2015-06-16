@@ -7,9 +7,6 @@ permalink: /todo/
 things to do
 ===
 
-a punch-list of things I really need to learn/do/dive into (aw, that almost rhymed), in no particular order, well, except maybe the first one:
-
-* ~~get a job~~
 * learn dc metro
 * learn django
 * face my fear of mobile app dev
