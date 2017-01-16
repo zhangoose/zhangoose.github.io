@@ -7,9 +7,10 @@ permalink: /todo/
 things to do
 ===
 
-* learn dc metro
-* learn django
-* face my fear of mobile app dev
+* learn *more* django
+* read more about testing best practices
+* see more birds
+* learn how to do some cool tricks on kendama
 
 and that's all for now
 
