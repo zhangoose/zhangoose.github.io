@@ -7,10 +7,10 @@ permalink: /todo/
 things to do
 ===
 
-* learn *more* django
+* learn how to longboard
 * read more about testing best practices
 * see more birds
-* learn how to do some cool tricks on kendama
+* spread positivity, optimism, and sparkle emojis ✨
 
 and that's all for now
 
