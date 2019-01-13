@@ -2,11 +2,12 @@
 title: alex zhang 
 email: hi.zhalex@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  I like to code and doodle. Coodle. Wait no jk that sounds weird heh.
+  coder, but probably mostly doodler
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://www.zhalex.net" # the base hostname & protocol for your site
 twitter_username: hizhalex
 github_username:  zhangoose
+instagram_username: zhangoose_
 
 # Build settings
 markdown: kramdown
