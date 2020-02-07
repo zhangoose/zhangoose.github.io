@@ -4,18 +4,17 @@ title: about
 permalink: /about/
 ---
 
-# oh hay, i'm alex
+# sup, i'm alex
 
 ![me](/img/aboutme.png)
 
 i...
 
+* live in nyc for now
 * have a <s>monster</s> ginger tabby cat named hero
 * am an amateur bird watcher
-* doodle on my phone 
 * doodle with watercolors
-* enjoy to-do lists
-* forgot how to ride a bike
+* am usually found daydreaming/sleeping on the grass
 * code sometimes
 * have a <a href="https://gist.github.com/zhangoose/0aa0cd10f5c8faa39ce585154bfacfe9" target="_blank">resume</a>
 
