@@ -13,4 +13,3 @@ things to do
 * come back to the joy in things ✨
 
 and that's all for now
-

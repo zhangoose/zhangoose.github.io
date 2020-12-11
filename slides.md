@@ -1,9 +1,10 @@
 ---
 layout: page
+title: slides
 permalink: /slides/
 ---
 
-I've done a couple lowkey talks as a way to practice explaining things to people! Here are my slides and stuff:
+i've done a couple lowkey talks as a way to practice explaining things to people! ... but, like, let's be honest, i just enjoy putting together slide decks. anyway, here they are:
 
 -----------
 
@@ -19,7 +20,7 @@ A walkthrough of how we deploy Django apps (with or without an Angular frontend)
 
 **Django-NYC meetup, May 17, 2018**
 
-Lightning talk on Djago Rest Framework and Kafka
+Lightning talk on Django Rest Framework and Kafka
 
 * [slides](https://docs.google.com/presentation/d/1tLEOMHHgvNmF2lUf_S2O60NfbKRvzU1rqbx7DgIjRUA/edit?usp=sharing)
 
@@ -27,7 +28,7 @@ Lightning talk on Djago Rest Framework and Kafka
 
 **VueNYC meetup, Feb 20, 2018**
 
-Last month we did a vue workshop. a vue beginner (vueginner? nah) talks about stuff she didn't understand from it. maybe you got these questions too, idk. mad chill lowkey (like so lowkey it's not even a key) "talk".
+>Last month we did a vue workshop. a vue beginner (vueginner? nah) talks about stuff she didn't understand from it. maybe you got these questions too, idk. mad chill lowkey (like so lowkey it's not even a key) "talk".
 
 * [slides](https://docs.google.com/presentation/d/1tihFSerctnRT1fBWn2nrgjvk9GMMwCxrrHWvYZMzOsw/edit?usp=sharing)
 * [recording](https://www.youtube.com/watch?v=xFQm2zFkDXw)
@@ -36,7 +37,7 @@ Last month we did a vue workshop. a vue beginner (vueginner? nah) talks about st
 
 **AngularNYC meetup, Sept 26, 2017**
 
-Incoming major version release! Alex is going to go over the new exciting features in Angular 5. 
+>Incoming major version release! Alex is going to go over the new exciting features in Angular 5. 
 
 * [slides](https://docs.google.com/presentation/d/1_Am96XyWRMgsqgykJQFSLvTfKfgx4wAQ6lc0tMSQGgY/edit?usp=sharing)
 * [recording](https://www.youtube.com/watch?v=IryOMzupbZ4)
